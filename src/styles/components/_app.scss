@@ -1,0 +1,26 @@
+@use './../variables' as v;
+
+.appWrapper {
+    background-color: black;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 50px;
+    .color0 {
+        color: v.$darkPurple;
+    }
+    .color1 {
+        color: v.$lightPurple;
+    }
+    .color2 {
+        color: v.$beige
+    }
+    .color3 {
+        color: v.$olive
+    }
+    .color4 {
+        color: v.$red
+    }
+}
