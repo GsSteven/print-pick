@@ -4,29 +4,5 @@
     min-height: 100vh;
     background-color: black;
     width: 100%;
-    font-size: 50px;
-    position: relative;
-    .mainHead {
-        color: white;
-        font-family: v.$font1;
-        font-size: 50px;
-        position: relative;
-        width: 800px;
-        left: 25%;
-        padding-top: 8%;
-        h1 {
-            span {
-                color: v.$red;
-            }
-        }
-        #header2 {
-            transform: translate(500px, -25px);
-        }
-    }
-    .body {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-around;
-    }
+    padding-bottom: 20px;
 }

@@ -1,4 +1,5 @@
-@use './../variables/' as v;
+@use './../variables' as v;
+
 .navBar {
     font-family: v.$font2;
     font-size: 24px;
@@ -7,6 +8,7 @@
     width: 100%;
     display: flex;
     top: 5px;
+    z-index: 5;
 
     p {
         padding-left: 10px;
