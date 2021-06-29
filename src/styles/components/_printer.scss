@@ -1,0 +1,34 @@
+@use './../variables' as v;
+
+.printerWrapper {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    .circle {
+        background-color: white;
+        border-radius: 50%;
+        width: 330px;
+        height: 500px;
+        position: absolute;
+        top: 0;
+        right: 20%;
+        transform: rotate(40deg) translateY(-40px);
+        z-index: 0;
+    }
+    .printer {
+        z-index: 1;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+    .printerName {
+        font-family: v.$font2;
+        color: v.$olive;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        transform:translateX(-30px);
+    }
+}

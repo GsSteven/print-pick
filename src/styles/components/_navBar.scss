@@ -1,0 +1,29 @@
+@use './../variables/' as v;
+.navBar {
+    font-family: v.$font2;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    top: 5px;
+
+    p {
+        padding-left: 10px;
+    }
+
+    ul {
+        position: absolute;
+        top: 0;
+        right: 30px;
+        li {
+            display: inline;
+            padding: 0 20px;
+            transition: .2s linear;
+            cursor: pointer;
+            &:hover {
+                color: v.$beige;
+            }
+        }
+    }
+}
