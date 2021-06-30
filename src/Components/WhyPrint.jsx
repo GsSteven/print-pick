@@ -14,7 +14,7 @@ export default function WhyPrint() {
     <div className="whyPrintWrapper">
       <div className="headContainer">
         <h1 className="whyPrintHead">Why Print?</h1>
-        <img src={whyPrintHead} alt="" width="400" height="290" />
+        <img src={whyPrintHead} alt="" width="200" height="145" />
         <p>
           Imagine being able to physically hold anything you can think of. Being
           able to dream it and bring into reality. That is what 3D printing is
