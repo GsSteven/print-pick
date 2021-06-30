@@ -1,0 +1,67 @@
+@use "./../variables" as v;
+
+.whyPrintWrapper {
+    font-family: v.$font2;
+    color: white;
+    padding-bottom: 4em;
+    .headContainer {
+        margin-top: 8%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        .whyPrintHead {
+            font-family: v.$font1;
+            font-size: 72px;
+            text-align: center;
+        }
+    }
+    p {
+        width: 800px;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+    h2 {
+        font-family: v.$font1;
+        font-size: 40px;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .imageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img { 
+            margin: 15px 0;
+        }
+    }
+
+    .final {
+        margin-top: 30px 0;
+        blockquote {
+            position: relative;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            q {
+                margin: 0 auto;
+                font-size: 20px;
+            }
+            p {
+                font-size: 15px;
+                width: 100px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+            width: 500px;
+            margin: 0 auto;
+        }
+    }
+    .buttonContainer {
+        margin-top: 5vh;
+    }
+}

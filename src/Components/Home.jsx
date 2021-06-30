@@ -16,12 +16,19 @@ export default function Home() {
             For <span id="colorLetter">You</span>
           </span>
         </h1>
-        <h1 id="header2"></h1>
       </div>
       <div className="body">
         <Printer img={prusa} name="Prusa" />
         <Printer img={maker} name="MakerBot" />
         <Printer img={lullz} name="LulzBot" />
+      </div>
+      <div className="buttonContainer">
+        <button
+          className="getStarted"
+          onClick={() => (window.location.href = "./browse")}
+        >
+          Get Started
+        </button>
       </div>
     </div>
   );
