@@ -4,6 +4,11 @@ import Home from "./Home";
 import Search from "./Search";
 import Browse from "./Browse";
 import WhyPrint from "./WhyPrint";
+import Brand from "./Brand";
+
+//test images
+import prusa1 from "./../images/Prusa-i3.png";
+import prusa2 from "./../images/Prusa-Mini.png";
 
 function App() {
   return (
@@ -38,6 +43,16 @@ function App() {
         <Route exact path="/search" component={Search} />
         <Route exact path="/browse" component={Browse} />
         <Route exact path="/whyprint" component={WhyPrint} />
+
+        <Route exact path="/browse/prusa">
+          <Brand
+            name="Prusa"
+            printers={[
+              { name: "I3 MK3S+", img: prusa1 },
+              { name: "Mini+", img: prusa2 },
+            ]}
+          />
+        </Route>
       </Switch>
     </div>
   );

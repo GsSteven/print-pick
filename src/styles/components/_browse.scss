@@ -6,9 +6,6 @@
     text-align: center;
     font-family: v.$font1;
     padding-bottom: 4em;
-    h1 {
-        font-size: 45px;
-    }
     .browseList {
         max-width: 1000px; 
         margin: 0 auto;
@@ -40,7 +37,7 @@
                     margin-left: 50px;
                 }
                 &:hover {
-                    border-left: 2px solid black;
+                border-left: 2px solid black;
                 border-right: 2px solid black;
                 border-top: 1px solid black;
                 border-bottom: 1px solid black;
@@ -56,10 +53,29 @@
                     margin-right: 50px;
                 }
                 &:hover {
-                    border-left: 2px solid white;
+                border-left: 2px solid white;
                 border-right: 2px solid white;
                 border-top: 1px solid white;
                 border-bottom: 1px solid white;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .browseWrapper {
+        .browseList {
+            .brand {
+                &:nth-child(odd) {
+                    img {
+                        margin-left: 25px;
+                    }
+                }
+                &:nth-child(even) {
+                    img {
+                        margin-right: 25px;
+                    }
                 }
             }
         }
