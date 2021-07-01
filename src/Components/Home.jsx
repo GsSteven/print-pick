@@ -7,13 +7,11 @@ import prusa from "./../images/Prusa-i3.png";
 import maker from "./../images/makerBotReplicator.png";
 import lullz from "./../images/lullzbot6.png";
 
-const slideUpVariant = {
+const fadeInVariant = {
   hidden: {
-    y: 100,
     opacity: 0,
   },
   visible: (custom) => ({
-    y: 0,
     opacity: 1,
     transition: {
       type: "tween",
@@ -28,13 +26,13 @@ export default function Home() {
     <div className="homeWrapper">
       <motion.div
         className="mainHead"
-        initial={{ y: -200, opacity: 0 }}
+        initial={{ y: -100, opacity: 0 }}
         animate={{
           y: 0,
           opacity: 1,
           transition: {
-            delay: 0.2,
-            duration: 1,
+            delay: 0.1,
+            duration: 0.5,
             type: "tween",
           },
         }}
@@ -48,10 +46,10 @@ export default function Home() {
       </motion.div>
       <motion.div
         className="body"
-        variants={slideUpVariant}
+        variants={fadeInVariant}
         initial="hidden"
         animate="visible"
-        custom={1}
+        custom={0.75}
       >
         <Printer img={prusa} name="Prusa" />
         <Printer img={maker} name="MakerBot" />
@@ -59,10 +57,10 @@ export default function Home() {
       </motion.div>
       <motion.div
         className="buttonContainer"
-        variants={slideUpVariant}
+        variants={fadeInVariant}
         initial="hidden"
         animate="visible"
-        custom={1.25}
+        custom={1}
       >
         <button
           className="getStarted"
