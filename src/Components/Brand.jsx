@@ -3,6 +3,7 @@ import Printer from "./Printer";
 
 export default function Brand(props) {
   const [printers, setPrinters] = useState([]);
+
   const displayPrinters = () => {
     const printersList = props.printers.map((printer) => {
       return (

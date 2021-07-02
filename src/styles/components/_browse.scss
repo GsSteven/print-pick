@@ -23,8 +23,12 @@
                 height: 200px;
                 pointer-events: none;
             }
-            h2 {
+            h1 {
                 pointer-events: none;
+            }
+            p {
+                color: v.$red;
+                font-size: 15px;
             }
             &:nth-child(odd) {
                 background-image: url('./../images/browse/light3.png');
@@ -33,6 +37,11 @@
                 border-right: 2px solid white;
                 border-top: 1px solid white;
                 border-bottom: 1px solid white;
+                p {
+                    span {
+                        color: v.$darkPurple;
+                    }
+                }
                 img{
                     margin-left: 50px;
                 }
@@ -49,6 +58,11 @@
                 border-right: 2px solid black;
                 border-top: 1px solid black;
                 border-bottom: 1px solid black;
+                p {
+                    span {
+                        color: v.$olive;
+                    }
+                }
                 img{
                     margin-right: 50px;
                 }

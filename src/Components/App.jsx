@@ -8,13 +8,8 @@ import Brand from "./Brand";
 
 import fakeServerObject from "./../fakeServer";
 
-//test images
-import prusa1 from "./../images/Prusa/Prusa-i3.png";
-import prusa2 from "./../images/Prusa/Prusa-Mini.png";
-
 function App() {
   const [printers, setPrinters] = useState([]);
-  const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
     setPrinters(fakeServerObject);
@@ -64,9 +59,15 @@ function App() {
         </ul>
       </div>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/search" component={Search} />
-        <Route exact path="/browse" component={Browse} />
+        <Route exact path="/">
+          <Home printers={printers} />
+        </Route>
+        <Route exact path="/search">
+          <Search printers={printers} />
+        </Route>
+        <Route exact path="/browse">
+          <Browse printers={printers} />
+        </Route>
         <Route exact path="/whyprint" component={WhyPrint} />
 
         {displayRoutes()}

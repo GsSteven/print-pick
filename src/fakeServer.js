@@ -25,6 +25,14 @@ import monoPrice6 from './images/MonoPrice/MP10Mini.png';
 import monoPrice7 from './images/MonoPrice/cadet.png';
 import triLab1 from './images/TriLab/deltiQ2.png';
 import triLab2 from './images/TriLab/deltiQ2Plus.png';
+import qidi1 from './images/Qidi/iFast.png';
+import qidi2 from './images/Qidi/iMate.png';
+import qidi3 from './images/Qidi/iMates.png';
+import qidi4 from './images/Qidi/xMax.png';
+import qidi5 from './images/Qidi/xPlus.png';
+import qidi6 from './images/Qidi/xPro.png';
+import qidi7 from './images/Qidi/xMaker.png';
+import qidi8 from './images/Qidi/xOne2.png';
 
 
 const printerBrands = [
@@ -244,6 +252,67 @@ const printerBrands = [
                 buildArea: [250, 250, 500],
                 img: triLab2,
                 link: "https://store.trilab3d.com/product/trilab-deltiq-2-plus/"
+            }
+        ]
+    },
+    {
+        name: "QidiTech",
+        printers: [
+            {
+                name: "i-fast",
+                price: 2499,
+                buildArea: [330, 250, 320],
+                img: qidi1,
+                link: "http://www.qd3dprinter.com/products/i-fast/"
+            },
+            {
+                name: "i-mate",
+                price: 349,
+                buildArea: [260, 200, 200],
+                img: qidi2,
+                link: "http://www.qd3dprinter.com/products/i-mate/"
+            },
+            {
+                name: "i-mates",
+                price: 449,
+                buildArea: [260, 200, 200],
+                img: qidi3,
+                link: "http://www.qd3dprinter.com/products/i-mates/"
+            },
+            {
+                name: "X-Max",
+                price: 1099,
+                buildArea: [300, 250, 300],
+                img: qidi4,
+                link: "http://www.qd3dprinter.com/products/x-max/"
+            },
+            {
+                name: "X-Plus",
+                price: 699,
+                buildArea: [270, 200, 200],
+                img: qidi5,
+                link: "http://www.qd3dprinter.com/products/x-plus/"
+            },
+            {
+                name: "X-Pro",
+                price: 780,
+                buildArea: [230, 150, 150],
+                img: qidi6,
+                link: "http://www.qd3dprinter.com/products/x-pro/"
+            },
+            {
+                name: "X-Maker",
+                price: 710,
+                buildArea: [170, 150, 160],
+                img: qidi7,
+                link: "http://www.qd3dprinter.com/products/x-maker/"
+            },
+            {
+                name: "X-One 2",
+                price: 249,
+                buildArea: [140, 140, 140],
+                img: qidi8,
+                link: "http://www.qd3dprinter.com/products/x-one-2/"
             }
         ]
     },

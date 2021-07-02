@@ -1,68 +1,78 @@
 import React from "react";
 
-//img imports
-import prusa from "./../images/Prusa/Prusa-i3.png";
-import makerBot from "./../images/MakerBot/makerBotReplicator.png";
-import creality from "./../images/Creality/ender3pro.png";
-import lulzBot from "./../images/LulzBot/lulzBotWorkhorse.png";
-import monoPrice from "./../images/MonoPrice/monoPriceMiniDeltaV2.png";
-import triLab from "./../images/TriLab/triLab.png";
-import qidi from "./../images/Qidi/xOne2.png";
+export default function Browse(props) {
+  const displayBrands = () => {
+    const brands = props.printers.map((brand, index) => {
+      //for link ref
+      const lowerCaseName = brand.name.toLowerCase();
+      //for random image from brand
+      const randomIndex = Math.floor(Math.random() * brand.printers.length);
+      //get average price
+      const randomImage = brand.printers[randomIndex].img;
+      const priceArray = brand.printers.map((printer) => printer.price);
+      const lowestPrice = Math.min(...priceArray);
+      const highestPrice = Math.max(...priceArray);
+      const averagePrice = (
+        priceArray.reduce((a, b) => a + b) / brand.printers.length
+      ).toFixed(0);
 
-export default function Browse() {
+      //return every other brand as header first then image
+      if (!(index % 2)) {
+        return (
+          <div
+            className="brand"
+            onClick={() => (window.location.href = `./browse/${lowerCaseName}`)}
+            key={brand.name + index}
+          >
+            <div>
+              <h1>{brand.name}</h1>
+              <p>
+                Avg Price: <span className="price">${averagePrice}</span>
+              </p>
+              <div className="lowestHighest">
+                <p>
+                  Lowest: <span className="price">${lowestPrice}</span>
+                </p>
+                <p>
+                  Highest: <span className="price">${highestPrice}</span>
+                </p>
+              </div>
+            </div>
+            <img src={randomImage} alt={brand.name} />
+          </div>
+        );
+      } else {
+        return (
+          <div
+            className="brand"
+            onClick={() => (window.location.href = `./browse/${lowerCaseName}`)}
+            key={brand.name + index}
+          >
+            <img src={randomImage} alt={brand.name} />
+            <div>
+              <h1>{brand.name}</h1>
+              <p>
+                Avg Price: <span className="price">${averagePrice}</span>
+              </p>
+              <div className="lowestHighest">
+                <p>
+                  Lowest: <span className="price">${lowestPrice}</span>
+                </p>
+                <p>
+                  Highest: <span className="price">${highestPrice}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    });
+    return brands;
+  };
+
   return (
     <div className="browseWrapper">
-      <div className="browseList">
-        <div
-          className="brand"
-          onClick={() => (window.location.href = "./browse/prusa")}
-        >
-          <h2>Prusa</h2>
-          <img src={prusa} alt="Prusa" />
-        </div>
-        <div
-          className="brand"
-          onClick={() => (window.location.href = "./browse/makerbot")}
-        >
-          <img src={makerBot} alt="MakerBot" />
-          <h2>MakerBot</h2>
-        </div>
-        <div
-          className="brand"
-          onClick={() => (window.location.href = "./browse/creality")}
-        >
-          <h2>Creality</h2>
-          <img src={creality} alt="Creality" />
-        </div>
-        <div
-          className="brand"
-          onClick={() => (window.location.href = "./browse/lulzbot")}
-        >
-          <img src={lulzBot} alt="LulzBot" />
-          <h2>LulzBot</h2>
-        </div>
-        <div
-          className="brand"
-          onClick={() => (window.location.href = "./browse/monoprice")}
-        >
-          <h2>MonoPrice</h2>
-          <img src={monoPrice} alt="MonoPrice" />
-        </div>
-        <div
-          className="brand"
-          onClick={() => (window.location.href = "./browse/trilab")}
-        >
-          <img src={triLab} alt="TriLab" />
-          <h2>TriLab</h2>
-        </div>
-        <div
-          className="brand"
-          onClick={() => (window.location.href = "./browse/qidi")}
-        >
-          <h2>Qidi</h2>
-          <img src={qidi} alt="Quidi" />
-        </div>
-      </div>
+      <div className="browseList">{displayBrands()}</div>
     </div>
   );
 }
