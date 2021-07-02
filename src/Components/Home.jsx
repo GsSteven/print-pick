@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import Printer from "./Printer";
 
 //img imports
-import prusa from "./../images/Prusa-i3.png";
-import maker from "./../images/makerBotReplicator.png";
-import lullz from "./../images/lullzbot6.png";
+import prusa from "./../images/Prusa/Prusa-i3.png";
+import maker from "./../images/MakerBot/makerBotReplicator.png";
+import lulz from "./../images/LulzBot/lulzBotWorkhorse.png";
 
 const fadeInVariant = {
   hidden: {
@@ -53,7 +53,7 @@ export default function Home() {
       >
         <Printer img={prusa} name="Prusa" />
         <Printer img={maker} name="MakerBot" />
-        <Printer img={lullz} name="LulzBot" />
+        <Printer img={lulz} name="LulzBot" />
       </motion.div>
       <motion.div
         className="buttonContainer"

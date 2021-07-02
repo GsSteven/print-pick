@@ -1,13 +1,13 @@
 import React from "react";
 
 //img imports
-import prusa from "./../images/Prusa-i3.png";
-import makerBot from "./../images/makerBotReplicator.png";
-import creality from "./../images/ender3pro.png";
-import lulzBot from "./../images/lullzbot6.png";
-import monoPrice from "./../images/monoPriceMiniDeltaV2.png";
-import triLab from "./../images/triLab.png";
-import qidi from "./../images/qidi.png";
+import prusa from "./../images/Prusa/Prusa-i3.png";
+import makerBot from "./../images/MakerBot/makerBotReplicator.png";
+import creality from "./../images/Creality/ender3pro.png";
+import lulzBot from "./../images/LulzBot/lulzBotWorkhorse.png";
+import monoPrice from "./../images/MonoPrice/monoPriceMiniDeltaV2.png";
+import triLab from "./../images/TriLab/triLab.png";
+import qidi from "./../images/Qidi/xOne2.png";
 
 export default function Browse() {
   return (

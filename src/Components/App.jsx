@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Search from "./Search";
@@ -6,11 +6,36 @@ import Browse from "./Browse";
 import WhyPrint from "./WhyPrint";
 import Brand from "./Brand";
 
+import fakeServerObject from "./../fakeServer";
+
 //test images
-import prusa1 from "./../images/Prusa-i3.png";
-import prusa2 from "./../images/Prusa-Mini.png";
+import prusa1 from "./../images/Prusa/Prusa-i3.png";
+import prusa2 from "./../images/Prusa/Prusa-Mini.png";
 
 function App() {
+  const [printers, setPrinters] = useState([]);
+  const [routes, setRoutes] = useState([]);
+
+  useEffect(() => {
+    setPrinters(fakeServerObject);
+  }, []);
+
+  const displayRoutes = () => {
+    const routes = printers.map((brand, index) => {
+      const lowerCaseRoute = brand.name.toLowerCase();
+      return (
+        <Route
+          exact
+          path={`/browse/${lowerCaseRoute}`}
+          key={lowerCaseRoute + index}
+        >
+          <Brand name={brand.name} printers={brand.printers} />
+        </Route>
+      );
+    });
+    return routes;
+  };
+
   return (
     <div className="appWrapper">
       <div className="navBar">
@@ -44,15 +69,7 @@ function App() {
         <Route exact path="/browse" component={Browse} />
         <Route exact path="/whyprint" component={WhyPrint} />
 
-        <Route exact path="/browse/prusa">
-          <Brand
-            name="Prusa"
-            printers={[
-              { name: "I3 MK3S+", img: prusa1 },
-              { name: "Mini+", img: prusa2 },
-            ]}
-          />
-        </Route>
+        {displayRoutes()}
       </Switch>
     </div>
   );
