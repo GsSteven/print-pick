@@ -10,13 +10,11 @@ import fakeServerObject from "./../fakeServer";
 
 function App() {
   const [printers, setPrinters] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(null);
   const navBarRef = useRef();
   const mobileNav1 = useRef();
   const mobileNav2 = useRef();
   const mobileNav3 = useRef();
-  useEffect(() => {
-    setPrinters(fakeServerObject);
-  }, []);
 
   const displayRoutes = () => {
     const routes = printers.map((brand, index) => {
@@ -56,11 +54,18 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    setPrinters(fakeServerObject);
+    window.addEventListener('resize', () => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, []);
+
   return (
     <div className="appWrapper">
       <div className="navBar">
         <p>Print Pick</p>
-        {window.innerWidth < 1000 &&
+        {windowWidth < 1000 &&
           <div 
             className="mobileNav"
             onClick={expandMobileNav}
