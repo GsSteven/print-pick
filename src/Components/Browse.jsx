@@ -1,4 +1,31 @@
 import React from "react";
+import { motion } from "framer-motion";
+
+const containerVariant = {
+  hidden: { opacity: 0.5 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.01,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const childVariant = {
+  hidden: {
+    opacity: 0,
+    x: -50,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.3,
+      type: "tween",
+    },
+  },
+};
 
 export default function Browse(props) {
   const displayBrands = () => {
@@ -19,10 +46,11 @@ export default function Browse(props) {
       //return every other brand as header first then image
       if (!(index % 2)) {
         return (
-          <div
+          <motion.div
             className="brand"
             onClick={() => (window.location.href = `./browse/${lowerCaseName}`)}
             key={brand.name + index}
+            variants={childVariant}
           >
             <div>
               <h1>{brand.name}</h1>
@@ -39,14 +67,15 @@ export default function Browse(props) {
               </div>
             </div>
             <img src={randomImage} alt={brand.name} />
-          </div>
+          </motion.div>
         );
       } else {
         return (
-          <div
+          <motion.div
             className="brand"
             onClick={() => (window.location.href = `./browse/${lowerCaseName}`)}
             key={brand.name + index}
+            variants={childVariant}
           >
             <img src={randomImage} alt={brand.name} />
             <div>
@@ -63,7 +92,7 @@ export default function Browse(props) {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         );
       }
     });
@@ -72,7 +101,14 @@ export default function Browse(props) {
 
   return (
     <div className="browseWrapper">
-      <div className="browseList">{displayBrands()}</div>
+      <motion.div
+        className="browseList"
+        variants={containerVariant}
+        initial="hidden"
+        animate="visible"
+      >
+        {displayBrands()}
+      </motion.div>
     </div>
   );
 }
