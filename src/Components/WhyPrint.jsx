@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //img imports
 import whyPrintHead from "./../images/whyPrint/WhyPrintHead.jpg";
@@ -60,11 +61,10 @@ export default function WhyPrint() {
         </p>
       </div>
       <div className="buttonContainer">
-        <button
-          className="getStarted"
-          onClick={() => (window.location.href = "./browse")}
-        >
-          Get Started
+        <button className="getStarted">
+          <Link className="getStartedLink" to="/browse">
+            Get Started
+          </Link>
         </button>
       </div>
     </div>

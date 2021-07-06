@@ -45,6 +45,7 @@ export default function Search(props) {
   const handleFilter = (e) => {
     const value = e.target.value;
     let newList;
+    //search filtered list if search is present
     if (search) {
       newList = filteredList.filter((printer) => {
         const inRange = getInRange(value, printer.props.price);

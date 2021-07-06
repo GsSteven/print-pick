@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Printer from "./Printer";
 
 //img imports
@@ -62,11 +63,10 @@ export default function Home() {
         animate="visible"
         custom={1}
       >
-        <button
-          className="getStarted"
-          onClick={() => (window.location.href = "./browse")}
-        >
-          Get Started
+        <button className="getStarted">
+          <Link className="getStartedLink" to="/browse">
+            Get Started
+          </Link>
         </button>
       </motion.div>
     </div>
