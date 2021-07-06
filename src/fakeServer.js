@@ -33,6 +33,9 @@ import qidi5 from './images/Qidi/xPlus.png';
 import qidi6 from './images/Qidi/xPro.png';
 import qidi7 from './images/Qidi/xMaker.png';
 import qidi8 from './images/Qidi/xOne2.png';
+import ultimaker1 from './images/Ultimaker/ultimakerS5.png';
+import ultimaker2 from './images/Ultimaker/ultimakerS3.png';
+import ultimaker3 from './images/Ultimaker/ultimaker2PlusConnect.png';
 
 
 const printerBrands = [
@@ -316,6 +319,32 @@ const printerBrands = [
             }
         ]
     },
+    {
+        name: "Ultimaker",
+        printers: [
+            {
+                name: "S5",
+                price: 5995,
+                buildArea: [330, 240, 300],
+                img: ultimaker1,
+                link: "https://www.dimension.works/ultimaker-s5"
+            },
+            {
+                name: "S3",
+                price: 4395,
+                buildArea: [230, 190, 200],
+                img: ultimaker2,
+                link: "https://www.dimension.works/ultimaker-s3"
+            },
+            {
+                name: "2+ Connect",
+                price: 2499,
+                buildArea: [223, 220, 205],
+                img: ultimaker3,
+                link: "https://www.dimension.works/ultimaker-2-plus-connect"
+            }
+        ]
+    }
 
 ];
 

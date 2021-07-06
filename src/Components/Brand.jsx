@@ -4,24 +4,24 @@ import Printer from "./Printer";
 export default function Brand(props) {
   const [printers, setPrinters] = useState([]);
 
-  const displayPrinters = () => {
-    const printersList = props.printers.map((printer) => {
-      return (
-        <Printer
-          name={printer.name}
-          img={printer.img}
-          price={printer.price}
-          buildArea={printer.buildArea}
-          link={printer.link}
-        />
-      );
-    });
-    setPrinters(printersList);
-  };
-
   useEffect(() => {
+    const displayPrinters = () => {
+      const printersList = props.printers.map((printer, index) => {
+        return (
+          <Printer
+            name={printer.name}
+            img={printer.img}
+            price={printer.price}
+            buildArea={printer.buildArea}
+            link={printer.link}
+            key={printer + index}
+          />
+        );
+      });
+      setPrinters(printersList);
+    };
     displayPrinters();
-  }, []);
+  }, [props.printers]);
 
   return (
     <div className="brandWrapper">

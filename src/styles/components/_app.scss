@@ -10,11 +10,14 @@
         font-family: v.$font2;
         font-size: 24px;
         color: white;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         display: flex;
-        padding-top: 5px;
         z-index: 5;
+        min-height: 40px;
+        background-color: black;
     
         p {
             position: absolute;
@@ -60,7 +63,7 @@
                 height: 25px;
                 width: 30px;
                 position: absolute;
-                top: 10px;
+                top: 7.5px;
                 right: 15px;
                 display: flex;
                 flex-direction: column;
