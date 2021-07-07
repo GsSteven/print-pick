@@ -8,17 +8,17 @@ export default function Printer(props) {
   const brand = props.brand ? props.brand : "";
 
   return (
-    <div
-      className="printerWrapper"
-      onClick={() => setExpanded((current) => !current)}
-    >
+    <div className="printerWrapper">
       <div className="circle" />
-      <img className="printer" src={props.img} alt="" />
+      <img
+        className="printer"
+        src={props.img}
+        alt=""
+        onClick={() => setExpanded((current) => !current)}
+      />
       <h4 className="printerName">{brand + " " + props.name}</h4>
       {props.price && <h3 className="printerPrice">${props.price}</h3>}
-      {expanded && (
-        <ExpandedPrinter {...props} close={() => setExpanded(false)} />
-      )}
+      {expanded && <ExpandedPrinter {...props} close={setExpanded} />}
     </div>
   );
 }

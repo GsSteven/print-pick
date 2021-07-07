@@ -21,7 +21,6 @@ export default function Home(props) {
   const [currentPrinters, setCurrentPrinters] = useState(null);
 
   useEffect(() => {
-    console.log(props.printers);
     const randomPrinters = () => {
       //arrange all printers from all brands
       const printersArray = [];
@@ -34,7 +33,6 @@ export default function Home(props) {
           printersArray.push(printer);
         });
       });
-      console.log(printersArray);
       //get 3 random printers
       for (let i = 0; i < 3; i++) {
         const randomIndex = Math.floor(Math.random() * printersArray.length);
@@ -42,7 +40,6 @@ export default function Home(props) {
       }
       //create printer elements
       const printerElements = selectedPrinters.map((printer, index) => {
-        console.log(printer);
         const { brand, name, buildArea, img, link } = printer;
         return (
           <Printer
@@ -59,7 +56,7 @@ export default function Home(props) {
       setCurrentPrinters(printerElements);
     };
     randomPrinters();
-  }, []);
+  }, [props.printers]);
 
   return (
     <div className="homeWrapper">
@@ -91,6 +88,7 @@ export default function Home(props) {
         custom={0.75}
       >
         {currentPrinters}
+        <div className="antiClick" />
       </motion.div>
       <motion.div
         className="buttonContainer"
