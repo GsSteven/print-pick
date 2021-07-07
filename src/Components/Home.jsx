@@ -1,12 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Printer from "./Printer";
-
-//img imports
-import prusa from "./../images/Prusa/Prusa-i3.png";
-import maker from "./../images/MakerBot/makerBotReplicator.png";
-import lulz from "./../images/LulzBot/lulzBotWorkhorse.png";
 
 const fadeInVariant = {
   hidden: {
@@ -22,7 +17,50 @@ const fadeInVariant = {
   }),
 };
 
-export default function Home() {
+export default function Home(props) {
+  const [currentPrinters, setCurrentPrinters] = useState(null);
+
+  useEffect(() => {
+    console.log(props.printers);
+    const randomPrinters = () => {
+      //arrange all printers from all brands
+      const printersArray = [];
+      const selectedPrinters = [];
+      props.printers.forEach((brand) => {
+        const printers = brand.printers;
+        const brandName = brand.name;
+        printers.forEach((printer) => {
+          printer.brand = brandName;
+          printersArray.push(printer);
+        });
+      });
+      console.log(printersArray);
+      //get 3 random printers
+      for (let i = 0; i < 3; i++) {
+        const randomIndex = Math.floor(Math.random() * printersArray.length);
+        selectedPrinters.push(printersArray[randomIndex]);
+      }
+      //create printer elements
+      const printerElements = selectedPrinters.map((printer, index) => {
+        console.log(printer);
+        const { brand, name, buildArea, img, link } = printer;
+        return (
+          <Printer
+            brand={brand}
+            name={name}
+            buildArea={buildArea}
+            img={img}
+            link={link}
+            key={index + name}
+          />
+        );
+      });
+      //set printers
+      setCurrentPrinters(printerElements);
+    };
+    randomPrinters();
+  }, []);
+
   return (
     <div className="homeWrapper">
       <motion.div
@@ -52,9 +90,7 @@ export default function Home() {
         animate="visible"
         custom={0.75}
       >
-        <Printer img={prusa} name="Prusa" />
-        <Printer img={maker} name="MakerBot" />
-        <Printer img={lulz} name="LulzBot" />
+        {currentPrinters}
       </motion.div>
       <motion.div
         className="buttonContainer"

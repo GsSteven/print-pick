@@ -9,7 +9,7 @@ import Brand from "./Brand";
 import fakeServerObject from "./../fakeServer";
 
 function App() {
-  const [printers, setPrinters] = useState([]);
+  const [printers, setPrinters] = useState(fakeServerObject);
   const [windowWidth, setWindowWidth] = useState(null);
   const navBarRef = useRef();
   const mobileNav1 = useRef();
@@ -37,14 +37,14 @@ function App() {
     const navLine1 = mobileNav1.current;
     const navLine2 = mobileNav2.current;
     const navLine3 = mobileNav3.current;
-    if(navBar.style.right !== "0%"){
+    if (navBar.style.right !== "0%") {
       navBar.style.right = "0%";
       navLine1.style.transform = "translateY(10.5px) rotate(-45deg)";
       navLine1.style.backgroundColor = "#A51A41";
       navLine2.style.opacity = "0";
       navLine3.style.transform = "translateY(-10.5px) rotate(45deg)";
       navLine3.style.backgroundColor = "#A51A41";
-    }else {
+    } else {
       navBar.style.right = "-110%";
       navLine1.style.transform = "";
       navLine1.style.backgroundColor = "white";
@@ -52,11 +52,10 @@ function App() {
       navLine3.style.transform = "";
       navLine3.style.backgroundColor = "white";
     }
-  }
+  };
 
   useEffect(() => {
-    setPrinters(fakeServerObject);
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
   }, []);
@@ -65,20 +64,17 @@ function App() {
     <div className="appWrapper">
       <div className="navBar">
         <p>Print Pick</p>
-        {windowWidth < 1000 &&
-          <div 
-            className="mobileNav"
-            onClick={expandMobileNav}
-          >
-            <div className="navLine" ref={mobileNav1}/>
-            <div className="navLine" ref={mobileNav2}/>
-            <div className="navLine" ref={mobileNav3}/>
+        {windowWidth < 1000 && (
+          <div className="mobileNav" onClick={expandMobileNav}>
+            <div className="navLine" ref={mobileNav1} />
+            <div className="navLine" ref={mobileNav2} />
+            <div className="navLine" ref={mobileNav3} />
           </div>
-        }
+        )}
         <ul ref={navBarRef}>
-          {window.innerWidth < 1000 &&
+          {window.innerWidth < 1000 && (
             <p className="redPrintPick">Print Pick</p>
-          }
+          )}
           <li>
             <Link className="navLink" to="/">
               Home

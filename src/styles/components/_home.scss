@@ -9,7 +9,7 @@
         font-size: 45px;
         position: relative;
         width: 500px;
-        left: 25%;
+        left: 26%;
         pointer-events: none;
         padding-bottom: 50px;
         margin-bottom: 40px;
@@ -46,7 +46,6 @@
         padding: 10px;
         height: 45px;
         border-radius: 10px;
-        transform: translateX(-25px);
         cursor: pointer;
         transition: .6s ease-in-out;
         &:hover {
