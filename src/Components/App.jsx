@@ -9,12 +9,24 @@ import Brand from "./Brand";
 import fakeServerObject from "./../fakeServer";
 
 function App() {
-  const [printers, setPrinters] = useState(fakeServerObject);
+  const printers = fakeServerObject;
+  //const [printers, setPrinters] = useState([]);
   const [windowWidth, setWindowWidth] = useState(null);
   const navBarRef = useRef();
   const mobileNav1 = useRef();
   const mobileNav2 = useRef();
   const mobileNav3 = useRef();
+
+  /*
+  for use if server holds printer object
+  const getPrinters = () => {
+    axios.get()
+    .then(response => {
+      if(response.status === 200) setPrinters(response);
+    })
+    .catch(error => console.error(error));
+  }
+  */
 
   const displayRoutes = () => {
     const routes = printers.map((brand, index) => {

@@ -22,21 +22,20 @@ export default function WhyPrint() {
           all about. There are no boundries. There is no requirement to start
           learning about it. The community around it has so many people eager to
           help newcomers and share their knowledge. From the art world to
-          engineering 3D, printing is for everyone and should be investigated
-          even if only for a minute.
+          engineering, 3D printing is for everyone.
         </p>
       </div>
       <h2>Art & Sculptures</h2>
       <div className="imageContainer">
-        <img src={moon} width="600" height="450" alt="moon sculpture" />
-        <img src={rome} width="600" height="556" alt="rome sculpture" />
-        <img src={ball} width="600" height="487" alt="ball sculpture" />
+        <img src={moon} width="600" height="500" alt="moon sculpture" />
+        <img src={rome} width="600" height="500" alt="rome sculpture" />
+        <img src={ball} width="600" height="500" alt="ball sculpture" />
       </div>
       <h2>Engineering & Prosthetics</h2>
       <div className="imageContainer">
-        <img src={hand} width="600" height="400" alt="hand prosthetic" />
-        <img src={gear} width="600" height="440" alt="gear print" />
-        <img src={engine} width="600" height="505" alt="engine print" />
+        <img src={hand} width="600" height="500" alt="hand prosthetic" />
+        <img src={gear} width="600" height="500" alt="gear print" />
+        <img src={engine} width="600" height="500" alt="engine print" />
       </div>
       <div className="final">
         <p>

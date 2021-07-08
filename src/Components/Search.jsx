@@ -37,6 +37,8 @@ export default function Search(props) {
         return 1000 <= price && price < 2000;
       case "2000plus":
         return price >= 2000;
+      case "all":
+        return price > 0;
       default:
         console.error("error at range switch");
     }
@@ -148,7 +150,7 @@ export default function Search(props) {
                 <input
                   type="radio"
                   id="500to1000"
-                  value={"500to1000"}
+                  value="500to1000"
                   name="priceFilter"
                 />
                 <label htmlFor="500to1000">$500 - $1000</label>
@@ -170,6 +172,10 @@ export default function Search(props) {
                   name="priceFilter"
                 />
                 <label htmlFor="2000plus">$2000+</label>
+              </div>
+              <div className="radioContainer">
+                <input type="radio" id="all" value="all" name="priceFilter" />
+                <label htmlFor="all">All</label>
               </div>
             </div>
           </motion.div>

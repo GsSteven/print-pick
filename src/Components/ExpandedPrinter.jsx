@@ -13,10 +13,13 @@ export default function ExpandedPrinter(props) {
   const backgroundImgRef = useRef();
 
   const tiltCard = (e) => {
-    const xAxis = (window.innerWidth / 2 - e.screenX) / 25;
-    const yAxis = (window.innerHeight / 2 - e.screenY) / 25;
-    const card = cardRef.current;
-    card.style.transform = `rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
+    //prevent 3d tilt on mobile
+    if (window.innerWidth > 600) {
+      const xAxis = (window.innerWidth / 2 - e.screenX) / 25;
+      const yAxis = (window.innerHeight / 2 - e.screenY) / 25;
+      const card = cardRef.current;
+      card.style.transform = `rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
+    }
   };
 
   const enterCard = (e) => {
