@@ -11,32 +11,37 @@
         margin: 0 auto;
         border-radius: 3px;
         .brand {
-            height: 150px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-size: 25px;
             cursor: pointer;
             transition: .3s ease-in-out;
-            img {
-                height: 200px;
-                pointer-events: none;
-            }
-            h1 {
-                pointer-events: none;
-            }
-            p {
-                color: v.$red;
-                font-size: 15px;
+            .browseLink {
+                height: 150px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                img {
+                    height: 200px;
+                    pointer-events: none;
+                }
+                h1 {
+                    pointer-events: none;
+                }
+                p {
+                    color: v.$red;
+                    font-size: 15px;
+                }  
             }
             &:nth-child(odd) {
                 background-image: url('./../images/browse/light.png');
-                color: black;
                 border-left: 2px solid white;
                 border-right: 2px solid white;
                 border-top: 1px solid white;
                 border-bottom: 1px solid white;
+                h1 {
+                    color: black;
+                }
                 p {
                     span {
                         color: v.$darkPurple;
@@ -58,6 +63,9 @@
                 border-right: 2px solid black;
                 border-top: 1px solid black;
                 border-bottom: 1px solid black;
+                h1 {
+                    color: white;
+                }
                 p {
                     span {
                         color: v.$olive;

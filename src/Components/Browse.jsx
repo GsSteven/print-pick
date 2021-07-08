@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const containerVariant = {
@@ -48,50 +49,52 @@ export default function Browse(props) {
         return (
           <motion.div
             className="brand"
-            onClick={() => (window.location.href = `./browse/${lowerCaseName}`)}
             key={brand.name + index}
             variants={childVariant}
           >
-            <div>
-              <h1>{brand.name}</h1>
-              <p>
-                Avg Price: <span className="price">${averagePrice}</span>
-              </p>
-              <div className="lowestHighest">
+            <Link to={`./browse/${lowerCaseName}`} className="browseLink">
+              <div>
+                <h1>{brand.name}</h1>
                 <p>
-                  Lowest: <span className="price">${lowestPrice}</span>
+                  Avg Price: <span className="price">${averagePrice}</span>
                 </p>
-                <p>
-                  Highest: <span className="price">${highestPrice}</span>
-                </p>
+                <div className="lowestHighest">
+                  <p>
+                    Lowest: <span className="price">${lowestPrice}</span>
+                  </p>
+                  <p>
+                    Highest: <span className="price">${highestPrice}</span>
+                  </p>
+                </div>
               </div>
-            </div>
-            <img src={randomImage} alt={brand.name} />
+              <img src={randomImage} alt={brand.name} />
+            </Link>
           </motion.div>
         );
       } else {
         return (
           <motion.div
             className="brand"
-            onClick={() => (window.location.href = `./browse/${lowerCaseName}`)}
             key={brand.name + index}
             variants={childVariant}
           >
-            <img src={randomImage} alt={brand.name} />
-            <div>
-              <h1>{brand.name}</h1>
-              <p>
-                Avg Price: <span className="price">${averagePrice}</span>
-              </p>
-              <div className="lowestHighest">
+            <Link to={`./browse/${lowerCaseName}`} className="browseLink">
+              <img src={randomImage} alt={brand.name} />
+              <div>
+                <h1>{brand.name}</h1>
                 <p>
-                  Lowest: <span className="price">${lowestPrice}</span>
+                  Avg Price: <span className="price">${averagePrice}</span>
                 </p>
-                <p>
-                  Highest: <span className="price">${highestPrice}</span>
-                </p>
+                <div className="lowestHighest">
+                  <p>
+                    Lowest: <span className="price">${lowestPrice}</span>
+                  </p>
+                  <p>
+                    Highest: <span className="price">${highestPrice}</span>
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           </motion.div>
         );
       }
