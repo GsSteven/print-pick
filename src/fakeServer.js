@@ -327,21 +327,21 @@ const printerBrands = [
                 price: 5995,
                 buildArea: [330, 240, 300],
                 img: ultimaker1,
-                link: "https://www.dimension.works/ultimaker-s5"
+                link: "https://ultimaker.com/3d-printers/ultimaker-s5"
             },
             {
                 name: "S3",
                 price: 4395,
                 buildArea: [230, 190, 200],
                 img: ultimaker2,
-                link: "https://www.dimension.works/ultimaker-s3"
+                link: "https://ultimaker.com/3d-printers/ultimaker-s3"
             },
             {
                 name: "2+ Connect",
                 price: 2499,
                 buildArea: [223, 220, 205],
                 img: ultimaker3,
-                link: "https://www.dimension.works/ultimaker-2-plus-connect"
+                link: "https://ultimaker.com/3d-printers/ultimaker-2-plus-connect"
             }
         ]
     }

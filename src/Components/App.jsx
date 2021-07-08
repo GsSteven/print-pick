@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Switch, Route, Link } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 import Home from "./Home";
 import Search from "./Search";
 import Browse from "./Browse";
@@ -88,41 +89,67 @@ function App() {
             <p className="redPrintPick">Print Pick</p>
           )}
           <li>
-            <Link className="navLink" to="/">
+            <Link
+              className="navLink"
+              to="/"
+              onClick={() => {
+                if (windowWidth < 1000) expandMobileNav();
+              }}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link className="navLink" to="/search">
+            <Link
+              className="navLink"
+              to="/search"
+              onClick={() => {
+                if (windowWidth < 1000) expandMobileNav();
+              }}
+            >
               Search
             </Link>
           </li>
           <li>
-            <Link className="navLink" to="/browse">
+            <Link
+              className="navLink"
+              to="/browse"
+              onClick={() => {
+                if (windowWidth < 1000) expandMobileNav();
+              }}
+            >
               Browse
             </Link>
           </li>
           <li>
-            <Link className="navLink" to="/whyprint">
+            <Link
+              className="navLink"
+              to="/whyprint"
+              onClick={() => {
+                if (windowWidth < 1000) expandMobileNav();
+              }}
+            >
               Why Print?
             </Link>
           </li>
         </ul>
       </div>
-      <Switch>
-        <Route exact path="/">
-          <Home printers={printers} />
-        </Route>
-        <Route exact path="/search">
-          <Search printers={printers} />
-        </Route>
-        <Route exact path="/browse">
-          <Browse printers={printers} />
-        </Route>
-        <Route exact path="/whyprint" component={WhyPrint} />
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/">
+            <Home printers={printers} />
+          </Route>
+          <Route exact path="/search">
+            <Search printers={printers} />
+          </Route>
+          <Route exact path="/browse">
+            <Browse printers={printers} />
+          </Route>
+          <Route exact path="/whyprint" component={WhyPrint} />
 
-        {displayRoutes()}
-      </Switch>
+          {displayRoutes()}
+        </Switch>
+      </ScrollToTop>
     </div>
   );
 }

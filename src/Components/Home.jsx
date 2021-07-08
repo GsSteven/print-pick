@@ -36,7 +36,16 @@ export default function Home(props) {
       //get 3 random printers
       for (let i = 0; i < 3; i++) {
         const randomIndex = Math.floor(Math.random() * printersArray.length);
-        selectedPrinters.push(printersArray[randomIndex]);
+        const beenPicked =
+          selectedPrinters.findIndex(
+            (printer) => printer.name === printersArray[randomIndex].name
+          ) !== -1;
+        //push random printer if it has not been selected
+        if (!beenPicked) selectedPrinters.push(printersArray[randomIndex]);
+        //if printer has been selected before grab another printer
+        else if (randomIndex > 0)
+          selectedPrinters.push(printersArray[randomIndex - 1]);
+        else selectedPrinters.push(printersArray[randomIndex + 1]);
       }
       //create printer elements
       const printerElements = selectedPrinters.map((printer, index) => {

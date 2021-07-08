@@ -68,3 +68,23 @@
         margin-top: 5vh 0 ;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .whyPrintWrapper {
+        .headContainer {
+            .whyPrintHead {
+                font-size: 50px;
+            }
+        }
+        p {
+            width: 100%;
+            padding: 0 15px
+        }
+        .final {
+            blockquote {
+                width: 100%;
+                color: v.$olive;
+            }
+        }
+    }
+}
