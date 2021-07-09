@@ -25,45 +25,49 @@ export default function ExpandedPrinter(props) {
   };
 
   const enterCard = (e) => {
-    const card = cardRef.current;
-    const closeButton = closeButtonRef.current;
-    const img = imgRef.current;
-    const imgBackground = backgroundImgRef.current;
-    const brand = brandRef.current;
-    const name = nameRef.current;
-    const price = priceRef.current;
-    const buildArea = buildAreaRef.current;
-    //pop out effect
-    closeButton.style.transform = "translateZ(20px)";
-    img.style.transform = "translateZ(100px)";
-    imgBackground.style.transform = "translateZ(50px) rotate(30deg)";
-    if (props.brand) brand.style.transform = "translateZ(45px)";
-    name.style.transform = "translateZ(25px)";
-    price.style.transform = "translateZ(20px)";
-    buildArea.style.transform = "translateZ(15px)";
-    //turn off card transition delay when hovering in card
-    card.style.transition = "none";
+    if (window.innerWidth > 600) {
+      const card = cardRef.current;
+      const closeButton = closeButtonRef.current;
+      const img = imgRef.current;
+      const imgBackground = backgroundImgRef.current;
+      const brand = brandRef.current;
+      const name = nameRef.current;
+      const price = priceRef.current;
+      const buildArea = buildAreaRef.current;
+      //pop out effect
+      closeButton.style.transform = "translateZ(20px)";
+      img.style.transform = "translateZ(100px)";
+      imgBackground.style.transform = "translateZ(50px) rotate(30deg)";
+      if (props.brand) brand.style.transform = "translateZ(45px)";
+      name.style.transform = "translateZ(25px)";
+      price.style.transform = "translateZ(20px)";
+      buildArea.style.transform = "translateZ(15px)";
+      //turn off card transition delay when hovering in card
+      card.style.transition = "none";
+    }
   };
 
   const exitCard = (e) => {
-    const card = cardRef.current;
-    const closeButton = closeButtonRef.current;
-    const img = imgRef.current;
-    const imgBackground = backgroundImgRef.current;
-    const brand = brandRef.current;
-    const name = nameRef.current;
-    const price = priceRef.current;
-    const buildArea = buildAreaRef.current;
-    //reset elements
-    closeButton.style.transform = "translateZ(0px)";
-    imgBackground.style.transform = "translateZ(0px) rotate(0deg)";
-    img.style.transform = "translateZ(0px)";
-    card.style.transform = "rotateX(0deg) rotateY(0deg)";
-    if (props.brand) brand.style.transform = "translateZ(0px)";
-    name.style.transform = "translateZ(0px)";
-    price.style.transform = "translateZ(0px)";
-    buildArea.style.transform = "translateZ(0px)";
-    card.style.transition = "0.5s ease";
+    if (window.innerWidth > 600) {
+      const card = cardRef.current;
+      const closeButton = closeButtonRef.current;
+      const img = imgRef.current;
+      const imgBackground = backgroundImgRef.current;
+      const brand = brandRef.current;
+      const name = nameRef.current;
+      const price = priceRef.current;
+      const buildArea = buildAreaRef.current;
+      //reset elements
+      closeButton.style.transform = "translateZ(0px)";
+      imgBackground.style.transform = "translateZ(0px) rotate(0deg)";
+      img.style.transform = "translateZ(0px)";
+      card.style.transform = "rotateX(0deg) rotateY(0deg)";
+      if (props.brand) brand.style.transform = "translateZ(0px)";
+      name.style.transform = "translateZ(0px)";
+      price.style.transform = "translateZ(0px)";
+      buildArea.style.transform = "translateZ(0px)";
+      card.style.transition = "0.5s ease";
+    }
   };
 
   const buildAreaConverted = () => {
