@@ -4,7 +4,7 @@
     width: 500px;
     height: 500px;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     .circle {
         background-color: white;
         border-radius: 50%;
@@ -17,6 +17,8 @@
         z-index: 0;
     }
     .printer {
+        min-height: 300px;
+        max-width: 400px;
         z-index: 1;
         position: absolute;
         top: 5%;

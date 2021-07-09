@@ -146,7 +146,6 @@ function App() {
             <Browse printers={printers} />
           </Route>
           <Route exact path="/whyprint" component={WhyPrint} />
-
           {displayRoutes()}
         </Switch>
       </ScrollToTop>
