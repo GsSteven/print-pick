@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import LazyLoad from "react-lazyload";
 import { motion, AnimatePresence } from "framer-motion";
 import Printer from "./Printer";
 
@@ -65,33 +64,17 @@ export default function Search(props) {
 
   const displayPrinters = (array) => {
     const printerElements = array.map((printer, index) => {
-      if (index > 2) {
-        return (
-          <LazyLoad once offset={200}>
-            <Printer
-              brand={printer.brand}
-              name={printer.name}
-              img={printer.img}
-              price={printer.price}
-              buildArea={printer.buildArea}
-              link={printer.link}
-              key={printer + index}
-            />
-          </LazyLoad>
-        );
-      } else {
-        return (
-          <Printer
-            brand={printer.brand}
-            name={printer.name}
-            img={printer.img}
-            price={printer.price}
-            buildArea={printer.buildArea}
-            link={printer.link}
-            key={printer + index}
-          />
-        );
-      }
+      return (
+        <Printer
+          brand={printer.brand}
+          name={printer.name}
+          img={printer.img}
+          price={printer.price}
+          buildArea={printer.buildArea}
+          link={printer.link}
+          key={printer + index}
+        />
+      );
     });
     setCurrentList(printerElements);
   };

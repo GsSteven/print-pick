@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import LazyLoad from "react-lazyload";
 import Printer from "./Printer";
 
 export default function Brand(props) {
@@ -8,20 +7,6 @@ export default function Brand(props) {
   useEffect(() => {
     const displayPrinters = () => {
       const printersList = props.printers.map((printer, index) => {
-        if (index > 2) {
-          return (
-            <LazyLoad once offset={200}>
-              <Printer
-                name={printer.name}
-                img={printer.img}
-                price={printer.price}
-                buildArea={printer.buildArea}
-                link={printer.link}
-                key={printer + index}
-              />
-            </LazyLoad>
-          );
-        }
         return (
           <Printer
             name={printer.name}
