@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
-
+import React, { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import closeButton from "./../images/closeButton.svg";
+import questionButton from "./../images/questionButton.svg";
 
 export default function ExpandedPrinter(props) {
+  const [buildQuestion, setBuildQuestion] = useState(false);
   const cardRef = useRef();
   const closeButtonRef = useRef();
   const imgRef = useRef();
@@ -64,6 +66,14 @@ export default function ExpandedPrinter(props) {
     card.style.transition = "0.5s ease";
   };
 
+  const buildAreaConverted = () => {
+    const { buildArea } = props;
+    const convertedArray = buildArea.map((size) => {
+      return (size / 25.4).toFixed(2);
+    });
+    return `${convertedArray[0]}"(L) x ${convertedArray[1]}"(W) x ${convertedArray[2]}"(H)`;
+  };
+
   return (
     <div className="expandedPrintWrapper">
       <div
@@ -100,6 +110,12 @@ export default function ExpandedPrinter(props) {
           <h4 className="expandedBuildArea" ref={buildAreaRef}>
             Build Area:{" "}
             {`${props.buildArea[0]} x ${props.buildArea[1]} x ${props.buildArea[2]}`}
+            <img
+              src={questionButton}
+              alt="?"
+              className="questionButton"
+              onClick={() => setBuildQuestion((current) => !current)}
+            />
           </h4>
           <a
             className="expandedLink"
@@ -111,6 +127,32 @@ export default function ExpandedPrinter(props) {
           </a>
         </div>
       </div>
+      <AnimatePresence>
+        {buildQuestion && (
+          <motion.div
+            className="buildAreaQuestion"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 20, opacity: 0 }}
+            transition={{ duration: 0.4, type: "tween" }}
+          >
+            <button id="closeExplain" onClick={() => setBuildQuestion(false)}>
+              <img src={closeButton} alt="close" />
+            </button>
+            <p id="buildExplain">
+              The build area is the maximum object printing size and is in
+              (Length) x (Width) x (Height) format. Measured in milimeters.
+            </p>
+            <div id="buildConverter">
+              Want to know the measurement in inches?
+              <br />
+              Here they are!
+              <br />
+              <p>{buildAreaConverted()}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -81,6 +81,52 @@
             font-weight: bolder;
         }
     }
+    .expandedBuildArea {
+        img {
+            height: 18px;
+            margin-left: 2.5px;
+            transform: translateY(3px);
+            cursor: pointer;
+        }
+    }
+    .buildAreaQuestion {
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 5px;
+        line-height: 1.5;
+        position: absolute;
+        font-family: v.$font2;
+        width: 320px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        #closeExplain {
+            height: 18px;
+            width: 18px;
+            position: relative;
+            top: -45px;
+            left: 140px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            img {
+                pointer-events: none;
+                width: 100%;
+            }
+        }
+        #buildExplain{
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        #buildConverter {
+            font-weight: bold;
+            p {
+                color: v.$red;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 600px) {
